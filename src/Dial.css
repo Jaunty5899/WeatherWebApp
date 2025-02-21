@@ -7,15 +7,17 @@
   background-color: cyan;
   transform: rotate(0deg);
   transform-origin: center 130px;
-}
-.container:hover .circle {
-  animation: fullCircle 5s linear forwards;
+  animation: fullCircle 1440s linear forwards;
 }
 @keyframes fullCircle {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(360deg);
   }
 }
+
+/* total time seconds:86400 */
+/* current time seconds(2:30):52200 [which is 217]*/
+/* current time seconds(12:00):43200 [which is 180]*/
+
+/* calculation for poisiton of orb= ([(CurrentTime/TotalTime)100]/100)360 */
+/* 1deg == 241sec(4 min) */
