@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Dial from "./Dial";
 
 const fetchApi = async () => {
   const apiLink =
@@ -10390,7 +10391,11 @@ const data = [
 
 function App() {
   const [state, setState] = useState();
-  return <div className="container"></div>;
+  return (
+    <div className="container">
+      <Dial />
+    </div>
+  );
 }
 
 export default App;
