@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Dial from "./Dial";
 
-const fetchApi = async () => {
-  const apiLink =
-    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/kerala?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json";
-  const response = await fetch(apiLink);
-  const jsonResponse = await response.json();
-};
+// const fetchApi = async () => {
+//   const apiLink =
+//     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/kerala?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json";
+//   const response = await fetch(apiLink);
+//   const jsonResponse = await response.json();
+// };
 
 const data = [
   {
@@ -10390,9 +10390,31 @@ const data = [
 ];
 
 function App() {
-  const [state, setState] = useState();
+  const [convertedTemperature, setConvertedTemperature] = useState(0);
+  console.log(data[0]);
+  useEffect(() => {
+    setConvertedTemperature(
+      (((data[0].currentConditions.temp - 32) * 5) / 9).toFixed(0)
+    );
+  }, []);
+
   return (
     <div className="container">
+      <h1 className="currentTemperature">
+        {convertedTemperature}
+        <span className="degreeSymbol">º</span>
+      </h1>
+      <h4 className="currentConditions">
+        {data[0].currentConditions.conditions}
+      </h4>
+      <span className="highAndLow">
+        <span className="temp" id="max">
+          {"↑ " + data[0].days[0].tempmax}
+        </span>
+        <span className="temp" id="min">
+          {"↓ " + data[0].days[0].tempmin}
+        </span>
+      </span>
       <Dial />
     </div>
   );
