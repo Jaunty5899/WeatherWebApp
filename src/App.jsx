@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Dial from "./Dial";
+import ForecastTable from "./ForecastTable";
 
 // const fetchApi = async () => {
 //   const apiLink =
@@ -10391,7 +10392,6 @@ const data = [
 
 function App() {
   const [convertedTemperature, setConvertedTemperature] = useState(0);
-  console.log(data[0]);
   useEffect(() => {
     setConvertedTemperature(
       (((data[0].currentConditions.temp - 32) * 5) / 9).toFixed(0)
@@ -10400,22 +10400,25 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className="currentTemperature">
-        {convertedTemperature}
-        <span className="degreeSymbol">º</span>
-      </h1>
-      <h4 className="currentConditions">
-        {data[0].currentConditions.conditions}
-      </h4>
-      <span className="highAndLow">
-        <span className="temp" id="max">
-          {"↑ " + data[0].days[0].tempmax}
+      <div className="dialContainer">
+        <h1 className="currentTemperature">
+          {convertedTemperature}
+          <span className="degreeSymbol">º</span>
+        </h1>
+        <h4 className="currentConditions">
+          {data[0].currentConditions.conditions}
+        </h4>
+        <span className="highAndLow">
+          <span className="temp" id="max">
+            {"↑ " + data[0].days[0].tempmax}
+          </span>
+          <span className="temp" id="min">
+            {"↓ " + data[0].days[0].tempmin}
+          </span>
         </span>
-        <span className="temp" id="min">
-          {"↓ " + data[0].days[0].tempmin}
-        </span>
-      </span>
-      <Dial />
+        <Dial />
+      </div>
+      <ForecastTable daily={data[0].days[0].hours} />
     </div>
   );
 }
