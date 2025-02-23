@@ -10408,6 +10408,10 @@ function App() {
         <h4 className="currentConditions">
           {data[0].currentConditions.conditions}
         </h4>
+        <span className="siders">
+          <span className="precipitation"></span>
+          <span className="windspeed"></span>
+        </span>
         <span className="highAndLow">
           <span className="temp" id="max">
             {"↑ " + data[0].days[0].tempmax}
@@ -10416,7 +10420,7 @@ function App() {
             {"↓ " + data[0].days[0].tempmin}
           </span>
         </span>
-        <Dial />
+        {/* <Dial /> */}
       </div>
       <ForecastTable daily={data[0].days[0].hours} />
     </div>
