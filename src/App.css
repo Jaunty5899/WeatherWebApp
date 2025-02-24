@@ -6,7 +6,7 @@
 .dialContainer {
   padding: 10px 10px 10px 10px;
   border-radius: 7px;
-  background-color: chocolate;
+  background-color: #00b0ff;
   font-family: "Roboto Condensed", serif;
 }
 .currentTemperature {
