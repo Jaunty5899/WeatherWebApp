@@ -1,20 +1,12 @@
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap);
-
 .container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 300px;
 }
 .dialContainer {
   padding: 10px 10px 10px 10px;
   border-radius: 7px;
   background-color: chocolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  position: relative;
   font-family: "Roboto Condensed", serif;
 }
 .currentTemperature {

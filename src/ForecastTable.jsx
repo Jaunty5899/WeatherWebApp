@@ -4,14 +4,28 @@ export default function ForecastTable({ daily }) {
   console.log(daily);
   return (
     <div className="table">
-      <h5>HOURLY FORECAST</h5>
-      <div className="weatherContainer">
-        {daily.map((e) => (
-          <div className="hourData">
-            <div>{parseInt(e.datetime.split(":", 1))}</div>
-            <div>{e.temp}</div>
-          </div>
-        ))}
+      <h3>HOURLY FORECAST</h3>
+      <div className="containerLimiter">
+        <div className="weatherContainer">
+          {daily.map((e) => {
+            const val = parseInt(e.datetime.split(":", 1));
+            return (
+              <div className="hourData">
+                <div className="hour">
+                  {val == 0
+                    ? 12 + " pm"
+                    : val <= 12
+                    ? val + " am"
+                    : val - 12 + " pm"}
+                </div>
+                <div className="temp">
+                  {Math.floor(e.temp)}
+                  <span className="degreeSymbolForecast">º</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

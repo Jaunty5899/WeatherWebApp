@@ -10409,8 +10409,8 @@ function App() {
           {data[0].currentConditions.conditions}
         </h4>
         <span className="siders">
-          <span className="precipitation"></span>
-          <span className="windspeed"></span>
+          <span className="precipitation">{}</span>
+          <span className="windspeed">{}</span>
         </span>
         <span className="highAndLow">
           <span className="temp" id="max">
