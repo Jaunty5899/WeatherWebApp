@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Dial from "./Dial";
 import ForecastTable from "./ForecastTable";
+import ForecastChart from "./ForecastChart";
 
 // const fetchApi = async () => {
 //   const apiLink =
@@ -10423,6 +10424,7 @@ function App() {
         {/* <Dial /> */}
       </div>
       <ForecastTable daily={data[0].days[0].hours} />
+      <ForecastChart daily={data[0].days} />
     </div>
   );
 }

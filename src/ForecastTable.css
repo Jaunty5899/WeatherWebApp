@@ -1,5 +1,5 @@
 .table {
-  background-color: #00b0ff;
+  background-color: var(--section-color);
   border-radius: 7px;
   padding: 0 10px 10px 10px;
   font-family: "Roboto Condensed", serif;

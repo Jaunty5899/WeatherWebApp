@@ -1,7 +1,6 @@
 import "./ForecastTable.css";
 
 export default function ForecastTable({ daily }) {
-  console.log(daily);
   return (
     <div className="table">
       <h3>HOURLY FORECAST</h3>
