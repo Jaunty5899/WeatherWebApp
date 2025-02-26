@@ -3,4 +3,5 @@
 }
 .chart {
   overflow-x: scroll;
+  scrollbar-width: none;
 }

@@ -19,7 +19,6 @@ export default function ForecastChart({ daily, convertFunction }) {
     "Nov",
     "Dec",
   ];
-  console.log(daily);
 
   return (
     <div className="table">

@@ -27,3 +27,9 @@
 .temp {
   line-height: 15px;
 }
+.address {
+  margin: 0;
+  font-size: x-large;
+  letter-spacing: 5px;
+  text-transform: capitalize;
+}

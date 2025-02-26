@@ -4,11 +4,14 @@ import Dial from "./Dial";
 import ForecastTable from "./ForecastTable";
 import ForecastChart from "./ForecastChart";
 
+// let data = [];
+
 // const fetchApi = async () => {
 //   const apiLink =
 //     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/kerala?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json";
 //   const response = await fetch(apiLink);
 //   const jsonResponse = await response.json();
+//   data.push(jsonResponse);
 // };
 
 const data = [
@@ -10398,14 +10401,15 @@ const convertTempToCelsius = (temp) => {
 function App() {
   const [convertedTemperature, setConvertedTemperature] = useState(0);
   useEffect(() => {
+    // fetchApi();
     setConvertedTemperature(
       convertTempToCelsius(data[0].currentConditions.temp)
     );
   }, []);
-
   return (
     <div className="container">
       <div className="dialContainer">
+        <h4 className="address">{data[0].address}</h4>
         <h1 className="currentTemperature">
           {convertedTemperature}
           <span className="degreeSymbol">º</span>
