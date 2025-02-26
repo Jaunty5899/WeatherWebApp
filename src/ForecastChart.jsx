@@ -4,15 +4,20 @@ import { LineChart } from "@mui/x-charts/LineChart";
 export default function ForecastChart({ daily }) {
   const dailyTemps = daily.map((day) => day.temp);
   const dailyLabels = daily.map((day) => day.datetime);
-  console.log(dailyTemps, dailyLabels);
+  console.log(daily);
 
   return (
     <div className="table">
       <h3 className="dailyForecast">DAILY FORECAST</h3>
       <div className="chart">
         <LineChart
+          dataset={daily}
           xAxis={[
-            { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] },
+            {
+              id: "barCategories",
+              data: dailyLabels,
+              scaleType: "point",
+            },
           ]}
           series={[{ curve: "linear", data: dailyTemps }]}
           width={1140}
