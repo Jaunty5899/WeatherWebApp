@@ -10391,11 +10391,15 @@ const data = [
   },
 ];
 
+const convertTempToCelsius = (temp) => {
+  return (((temp - 32) * 5) / 9).toFixed(0);
+};
+
 function App() {
   const [convertedTemperature, setConvertedTemperature] = useState(0);
   useEffect(() => {
     setConvertedTemperature(
-      (((data[0].currentConditions.temp - 32) * 5) / 9).toFixed(0)
+      convertTempToCelsius(data[0].currentConditions.temp)
     );
   }, []);
 
@@ -10414,17 +10418,23 @@ function App() {
           <span className="windspeed">{}</span>
         </span>
         <span className="highAndLow">
-          <span className="temp" id="max">
-            {"↑ " + data[0].days[0].tempmax}
-          </span>
           <span className="temp" id="min">
-            {"↓ " + data[0].days[0].tempmin}
+            {"↓ " + convertTempToCelsius(data[0].days[0].tempmin)}
+          </span>
+          <span className="temp" id="max">
+            {"↑ " + convertTempToCelsius(data[0].days[0].tempmax)}
           </span>
         </span>
         {/* <Dial /> */}
       </div>
-      <ForecastTable daily={data[0].days[0].hours} />
-      <ForecastChart daily={data[0].days} />
+      <ForecastTable
+        daily={data[0].days[0].hours}
+        convertFunction={convertTempToCelsius}
+      />
+      <ForecastChart
+        daily={data[0].days}
+        convertFunction={convertTempToCelsius}
+      />
     </div>
   );
 }

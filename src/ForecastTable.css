@@ -19,3 +19,6 @@
 .degreeSymbolForecast {
   vertical-align: super;
 }
+.hour {
+  font-weight: 500;
+}

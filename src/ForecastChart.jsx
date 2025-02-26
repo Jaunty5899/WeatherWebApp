@@ -1,8 +1,8 @@
 import "./ForecastChart.css";
 import { LineChart } from "@mui/x-charts/LineChart";
 
-export default function ForecastChart({ daily }) {
-  const dailyTemps = daily.map((day) => day.temp);
+export default function ForecastChart({ daily, convertFunction }) {
+  const dailyTemps = daily.map((day) => convertFunction(day.temp));
   const dailyLabels = daily.map((day) => day.datetime);
   console.log(daily);
 
@@ -22,7 +22,7 @@ export default function ForecastChart({ daily }) {
           series={[{ curve: "linear", data: dailyTemps }]}
           width={1140}
           height={180}
-          margin={{ left: 30, top: 20 }}
+          margin={{ left: 30, top: 20, right: 40 }}
           colors={["black"]}
         />
       </div>

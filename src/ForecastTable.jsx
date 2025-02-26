@@ -1,6 +1,6 @@
 import "./ForecastTable.css";
 
-export default function ForecastTable({ daily }) {
+export default function ForecastTable({ daily, convertFunction }) {
   return (
     <div className="table">
       <h3>HOURLY FORECAST</h3>
@@ -18,7 +18,7 @@ export default function ForecastTable({ daily }) {
                     : val - 12 + " pm"}
                 </div>
                 <div className="temp">
-                  {Math.floor(e.temp)}
+                  {convertFunction(e.temp)}
                   <span className="degreeSymbolForecast">º</span>
                 </div>
               </div>
