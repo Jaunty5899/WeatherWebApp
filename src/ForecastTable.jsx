@@ -1,4 +1,5 @@
 import "./ForecastTable.css";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ForecastTable({ daily, convertFunction }) {
   return (
@@ -9,7 +10,7 @@ export default function ForecastTable({ daily, convertFunction }) {
           {daily.map((e) => {
             const val = parseInt(e.datetime.split(":", 1));
             return (
-              <div className="hourData">
+              <div className="hourData" key={uuidv4()}>
                 <div className="hour">
                   {val == 0
                     ? 12 + " pm"
