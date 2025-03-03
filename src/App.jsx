@@ -4,9 +4,8 @@ import Loader from "./Loader";
 import ForecastTable from "./ForecastTable";
 import ForecastChart from "./ForecastChart";
 
-const fetchApi = async () => {
-  const apiLink =
-    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/delhi?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json";
+const fetchApi = async (place) => {
+  const apiLink = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json`;
   const response = await fetch(apiLink);
   const jsonResponse = await response.json();
   return jsonResponse;
@@ -20,15 +19,17 @@ function App() {
   const [place, setPlace] = useState();
   const [convertedTemperature, setConvertedTemperature] = useState(0);
   const [data, setData] = useState();
+
+  const fetchData = async (place) => {
+    const receivedResponse = await fetchApi(place);
+    setData(receivedResponse);
+    console.log(receivedResponse);
+    setConvertedTemperature(
+      convertTempToCelsius(receivedResponse.currentConditions.temp)
+    );
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const receivedResponse = await fetchApi();
-      setData(receivedResponse);
-      console.log(receivedResponse);
-      setConvertedTemperature(
-        convertTempToCelsius(receivedResponse.currentConditions.temp)
-      );
-    };
     fetchData();
   }, []);
 
@@ -43,6 +44,11 @@ function App() {
         value={place}
         className="search"
         onChange={(e) => setPlace(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            fetchData(place);
+          }
+        }}
       />
       <div className="dialContainer">
         <h4 className="address">{data.address}</h4>
