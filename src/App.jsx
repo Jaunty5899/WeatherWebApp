@@ -24,7 +24,7 @@ function App() {
     const fetchData = async () => {
       const receivedResponse = await fetchApi();
       setData(receivedResponse);
-      // console.log(receivedResponse);
+      console.log(receivedResponse);
       setConvertedTemperature(
         convertTempToCelsius(receivedResponse.currentConditions.temp)
       );
