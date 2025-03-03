@@ -33,3 +33,11 @@
   letter-spacing: 5px;
   text-transform: capitalize;
 }
+.search {
+  padding: 10px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  font-family: "Roboto Condensed", serif;
+  font-size: 20px;
+}

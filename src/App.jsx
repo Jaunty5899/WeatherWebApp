@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Dial from "./Dial";
+import Loader from "./Loader";
 import ForecastTable from "./ForecastTable";
 import ForecastChart from "./ForecastChart";
-
 
 const fetchApi = async () => {
   const apiLink =
@@ -18,13 +17,14 @@ const convertTempToCelsius = (temp) => {
 };
 
 function App() {
+  const [place, setPlace] = useState();
   const [convertedTemperature, setConvertedTemperature] = useState(0);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
   useEffect(() => {
     const fetchData = async () => {
       const receivedResponse = await fetchApi();
       setData(receivedResponse);
-      console.log(receivedResponse);
+      // console.log(receivedResponse);
       setConvertedTemperature(
         convertTempToCelsius(receivedResponse.currentConditions.temp)
       );
@@ -32,11 +32,18 @@ function App() {
     fetchData();
   }, []);
 
-    if (!data) {
-      return <h1>Loading...</h1>;
-    }
-    return (
+  if (!data) {
+    return <Loader />;
+  }
+  return (
     <div className="container">
+      <input
+        type="text"
+        placeholder="Enter the city name"
+        value={place}
+        className="search"
+        onChange={(e) => setPlace(e.target.value)}
+      />
       <div className="dialContainer">
         <h4 className="address">{data.address}</h4>
         <h1 className="currentTemperature">
@@ -52,10 +59,10 @@ function App() {
         </span>
         <span className="highAndLow">
           <span className="temp" id="min">
-            {"↓ " + convertTempToCelsius(data.days[0].tempmin)+"ºC"}
+            {"↓ " + convertTempToCelsius(data.days[0].tempmin) + "ºC"}
           </span>
           <span className="temp" id="max">
-            {"↑ " + convertTempToCelsius(data.days[0].tempmax)+"ºC"}
+            {"↑ " + convertTempToCelsius(data.days[0].tempmax) + "ºC"}
           </span>
         </span>
       </div>
@@ -63,10 +70,7 @@ function App() {
         daily={data.days[0].hours}
         convertFunction={convertTempToCelsius}
       />
-      <ForecastChart
-        daily={data.days}
-        convertFunction={convertTempToCelsius}
-      />
+      <ForecastChart daily={data.days} convertFunction={convertTempToCelsius} />
     </div>
   );
 }
