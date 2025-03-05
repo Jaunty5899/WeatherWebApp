@@ -8,12 +8,14 @@
   padding: 10px 10px 10px 10px;
   border-radius: 7px;
   background-color: var(--section-color);
+  backdrop-filter: blur(10px);
   font-family: "Roboto Condensed", serif;
 }
 .currentTemperature {
   margin: 0;
 }
 .degreeSymbol {
+  color: white;
   font-size: 25px;
   font-weight: 600;
   vertical-align: super;
@@ -28,6 +30,12 @@
 .temp {
   line-height: 15px;
 }
+.temp#max {
+  color: #d84315;
+}
+.temp#min {
+  color: #0091ea;
+}
 .address {
   margin: 0;
   font-size: x-large;
@@ -41,4 +49,6 @@
   border: none;
   font-family: "Roboto Condensed", serif;
   font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
 }

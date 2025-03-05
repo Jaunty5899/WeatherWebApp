@@ -16,7 +16,7 @@ const convertTempToCelsius = (temp) => {
 };
 
 function App() {
-  const [place, setPlace] = useState();
+  const [place, setPlace] = useState("");
   const [convertedTemperature, setConvertedTemperature] = useState(0);
   const [data, setData] = useState();
 
@@ -75,6 +75,7 @@ function App() {
       <ForecastTable
         daily={data.days[0].hours}
         convertFunction={convertTempToCelsius}
+        currentHour={parseInt(data.currentConditions.datetime.split(":", 1))}
       />
       <ForecastChart daily={data.days} convertFunction={convertTempToCelsius} />
     </div>

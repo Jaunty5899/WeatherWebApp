@@ -1,7 +1,7 @@
 import "./ForecastTable.css";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-export default function ForecastTable({ daily, convertFunction }) {
+export default function ForecastTable({ daily, currentHour, convertFunction }) {
   return (
     <div className="table">
       <h3>HOURLY FORECAST</h3>
@@ -11,6 +11,7 @@ export default function ForecastTable({ daily, convertFunction }) {
             const val = parseInt(e.datetime.split(":", 1));
             return (
               <div className="hourData" key={uuidv4()}>
+                {currentHour == val && <div className="now">Now</div>}
                 <div className="hour">
                   {val == 0
                     ? 12 + " pm"

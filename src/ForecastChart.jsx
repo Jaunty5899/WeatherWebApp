@@ -41,14 +41,14 @@ export default function ForecastChart({ daily, convertFunction }) {
             {
               curve: "linear",
               data: dailyTempsHigh,
-              color: "red",
+              color: "#d84315",
               label: "High",
               valueFormatter: (value) => `${value}°C`,
             },
             {
               curve: "linear",
               data: dailyTempsLow,
-              color: "blue",
+              color: "#0091ea",
               label: "Low",
               valueFormatter: (value) => `${value}°C`,
             },
