@@ -1,0 +1,12 @@
+.sunLaneScape {
+  background-color: rgba(247, 247, 247, 0.8);
+  backdrop-filter: blur(10px);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sunriseSunset {
+  align-self: flex-start;
+}

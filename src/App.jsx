@@ -3,6 +3,7 @@ import "./App.css";
 import Loader from "./Loader";
 import ForecastTable from "./ForecastTable";
 import ForecastChart from "./ForecastChart";
+import SunPhase from "./SunPhase";
 
 const fetchApi = async (place) => {
   const apiLink = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json`;
@@ -20,7 +21,7 @@ function App() {
   const [convertedTemperature, setConvertedTemperature] = useState(0);
   const [data, setData] = useState();
 
-  const fetchData = async (place) => {
+  const fetchData = async (place = "new delhi") => {
     const receivedResponse = await fetchApi(place);
     setData(receivedResponse);
     console.log(receivedResponse);
@@ -78,6 +79,7 @@ function App() {
         currentHour={parseInt(data.currentConditions.datetime.split(":", 1))}
       />
       <ForecastChart daily={data.days} convertFunction={convertTempToCelsius} />
+      <SunPhase />
     </div>
   );
 }
