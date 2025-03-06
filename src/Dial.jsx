@@ -15,20 +15,28 @@ export default function Dial({ sunrise, sunset }) {
   const currentSeconds =
     currentTime.getHours() * 3600 + currentTime.getMinutes() * 60;
   // console.log(currentSeconds, sunriseSeconds, sunsetSeconds, sunset);
-  // console.log(timeToDegrees);
+  // console.log(angle);
 
   const timeToDegrees = () => {
-    return ([(currentSeconds / sunsetSeconds) * 100] / 100) * 180 - 90;
+    const degrees = ([(currentSeconds / sunsetSeconds) * 100] / 100) * 180 - 90;
+    if (degrees > 90) {
+      return 90;
+    } else if (currentSeconds == 0) {
+      return -90;
+    } else {
+      return degrees;
+    }
   };
 
   setTimeout(() => {
     setAngle(timeToDegrees);
+    console.log(angle, sunset);
   }, 1000);
   return (
     <div
       className="circle"
       style={{
-        transform: `rotate(${currentSeconds == sunsetSeconds ? 90 : angle}deg)`,
+        transform: `rotate(${angle}deg)`,
       }}
     >
       <img src={sun} />
