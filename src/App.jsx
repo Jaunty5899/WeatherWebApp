@@ -79,7 +79,10 @@ function App() {
         currentHour={parseInt(data.currentConditions.datetime.split(":", 1))}
       />
       <ForecastChart daily={data.days} convertFunction={convertTempToCelsius} />
-      <SunPhase />
+      <SunPhase
+        sunrise={data.currentConditions.sunrise}
+        sunset={data.currentConditions.sunset}
+      />
     </div>
   );
 }

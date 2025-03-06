@@ -1,16 +1,14 @@
 .circle {
-  position: absolute;
-  top: 50px;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  transform: rotate(0deg);
+  /* transform: rotate(-90deg); */
   transform-origin: center 130px;
-  animation: fullCircle 20s linear forwards infinite;
+  transition: transform 0.5s;
+  /* animation: fullCircle 20s linear forwards; */
 }
 @keyframes fullCircle {
   100% {
-    transform: rotate(360deg);
+    transform: rotate(90deg);
   }
 }
 /* total time seconds:86400 */
@@ -18,4 +16,5 @@
 /* current time seconds(12:00):43200 [which is 180]*/
 
 /* calculation for poisiton of orb= ([(CurrentTime/TotalTime)100]/100)360 */
-/* 1deg == 241sec(4 min) */
+/* 1deg == 240sec(4 min) when 360deg*/
+/* 1deg == 480sec(8 min) when 180deg*/

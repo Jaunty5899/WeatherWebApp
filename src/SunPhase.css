@@ -1,12 +1,14 @@
-.sunLaneScape {
-  background-color: rgba(247, 247, 247, 0.8);
+.sunContainer {
+  background-color: rgba(247, 247, 247, 0.7);
   backdrop-filter: blur(10px);
-  height: 180px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
 }
 .sunriseSunset {
   align-self: flex-start;
+}
+.sunLaneScape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 181px;
+  overflow: hidden;
 }
