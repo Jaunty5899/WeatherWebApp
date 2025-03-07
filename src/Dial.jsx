@@ -12,7 +12,7 @@ export default function Dial({ sunrise, sunset, datetime }) {
   const sunriseSeconds = convertTimeToSeconds(sunrise);
   const sunsetSeconds = convertTimeToSeconds(sunset);
   const currentTime = convertTimeToSeconds(datetime);
-  console.log(currentTime);
+  // console.log(currentTime);
   // console.log(currentSeconds, sunriseSeconds, sunsetSeconds, sunset);
   // console.log(angle);
 
