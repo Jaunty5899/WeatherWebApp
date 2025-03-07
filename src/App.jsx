@@ -82,6 +82,7 @@ function App() {
       <SunPhase
         sunrise={data.currentConditions.sunrise}
         sunset={data.currentConditions.sunset}
+        datetime={data.currentConditions.datetime}
       />
     </div>
   );

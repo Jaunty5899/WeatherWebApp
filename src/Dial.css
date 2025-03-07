@@ -3,14 +3,14 @@
   height: 30px;
   /* transform: rotate(-90deg); */
   transform-origin: center 130px;
-  transition: transform 0.5s;
+  transition: transform 1s ease-in-out;
   /* animation: fullCircle 20s linear forwards; */
 }
-@keyframes fullCircle {
+/* @keyframes fullCircle {
   100% {
     transform: rotate(90deg);
   }
-}
+} */
 /* total time seconds:86400 */
 /* current time seconds(2:30):52200 [which is 217]*/
 /* current time seconds(12:00):43200 [which is 180]*/

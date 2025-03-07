@@ -1,6 +1,7 @@
 .sunContainer {
   background-color: rgba(247, 247, 247, 0.7);
   backdrop-filter: blur(10px);
+  height: 215px;
 }
 .sunriseSunset {
   align-self: flex-start;
@@ -9,6 +10,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 181px;
+  height: 200px;
   overflow: hidden;
+}
+.time {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.8rem;
+}
+.sunRiseTime {
+  left: 11%;
+}
+.sunSetTime {
+  right: 11%;
 }
