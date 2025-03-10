@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import ForecastTable from "./ForecastTable";
 import ForecastChart from "./ForecastChart";
 import SunPhase from "./SunPhase";
+import Details from "./Details";
 
 const fetchApi = async (place) => {
   const apiLink = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}?unitGroup=us&key=VCLHNDNGS2Y2HDLJA2VYWUMUC&contentType=json`;
@@ -87,6 +88,14 @@ function App() {
         sunrise={data.currentConditions.sunrise}
         sunset={data.currentConditions.sunset}
         datetime={data.currentConditions.datetime}
+      />
+      <Details
+        precipitation={data.currentConditions.precip}
+        windSpeed={data.currentConditions.windspeed}
+        humidity={data.currentConditions.humidity}
+        visibility={data.currentConditions.visibility}
+        uvIndex={data.currentConditions.uvindex}
+        pressure={data.currentConditions.pressure}
       />
     </div>
   );
