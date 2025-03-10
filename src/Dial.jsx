@@ -1,6 +1,7 @@
 import { useState } from "react";
 import sun from "./assets/sun.svg";
 import "./Dial.css";
+import { de } from "@faker-js/faker";
 
 const convertTimeToSeconds = (time) => {
   const timeArray = time.split(":");
@@ -17,10 +18,17 @@ export default function Dial({ sunrise, sunset, datetime }) {
   // console.log(angle);
 
   const timeToDegrees = () => {
-    const degrees = ([(currentTime / sunsetSeconds) * 100] / 100) * 180 - 90;
+    const degrees =
+      ([
+        ((currentTime - sunriseSeconds) / (sunsetSeconds - sunriseSeconds)) *
+          100,
+      ] /
+        100) *
+        180 -
+      90;
     if (degrees > 90) {
       return 90;
-    } else if (currentTime == 0) {
+    } else if (degrees <= -90) {
       return -90;
     } else {
       return degrees;
