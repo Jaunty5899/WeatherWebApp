@@ -35,7 +35,11 @@ function App() {
   }, []);
 
   if (!data) {
-    return <Loader />;
+    return (
+      <div className="container">
+        <Loader />
+      </div>
+    );
   }
   return (
     <div className="container">

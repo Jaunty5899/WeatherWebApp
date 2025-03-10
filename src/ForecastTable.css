@@ -31,3 +31,7 @@ h3 {
   color: white;
   font-weight: 700;
 }
+.now > a {
+  text-decoration: none;
+  color: white;
+}

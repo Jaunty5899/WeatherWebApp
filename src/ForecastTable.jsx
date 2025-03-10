@@ -11,7 +11,11 @@ export default function ForecastTable({ daily, currentHour, convertFunction }) {
             const val = parseInt(e.datetime.split(":", 1));
             return (
               <div className="hourData" key={uuidv4()}>
-                {currentHour == val && <div className="now">Now</div>}
+                {currentHour == val && (
+                  <div className="now" id="now">
+                    <a href="#now">Now</a>
+                  </div>
+                )}
                 <div className="hour">
                   {val == 0
                     ? 12 + " pm"
